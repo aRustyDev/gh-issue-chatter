@@ -1,0 +1,48 @@
+on:
+  rss:
+    url: 
+      - https://openrss.org/github.com/kubernetes/kubernetes/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22
+      - https://openrss.org/github.com/siderolabs/talos/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22
+      - https://openrss.org/github.com/bottlerocket-os/bottlerocket/issues?q=is:issue%20state:open%20label:%22good%20first%20issue%22
+      - https://openrss.org/github.com/bottlerocket-os/bottlerocket-core-kit/issues?q=is:issue%20state:open%20label:%22good%20first%20issue%22
+      - https://openrss.org/github.com/bottlerocket-os/bottlerocket-kernel-kit/issues?q=is:issue%20state:open%20label:%22good%20first%20issue%22
+      - https://openrss.org/github.com/bottlerocket-os/bottlerocket-sdk/issues?q=is:issue%20state:open%20label:%22good%20first%20issue%22
+      - https://openrss.org/github.com/bottlerocket-os/twoliter/issues?q=is:issue%20state:open%20label:%22good%20first%20issue%22
+      - https://openrss.org/github.com/cilium/cilium/issues?q=is:issue%20state:open%20label:%22good%20first%20issue%22
+      - https://openrss.org/github.com/anza-xyz/solana-sdk/issues?q=is:issue%20state:open%20label:%22good%20first%20issue%22
+      - https://openrss.org/github.com/anza-xyz/agave/issues?q=is:issue%20state:open%20label:%22good%20first%20issue%22
+      - https://openrss.org/github.com/anza-xyz/sbpf/issues?q=is:issue%20state:open%20label:%22good%20first%20issue%22
+      - https://openrss.org/github.com/anza-xyz/pinocchio/issues?q=is:issue%20state:open%20label:%22good%20first%20issue%22
+      - https://openrss.org/github.com/firecracker-microvm/firecracker/issues?q=is:issue%20state:open%20label:%22good%20first%20issue%22
+      - https://openrss.org/github.com/zen-browser/desktop/issues?q=is:issue%20state:open%20label:%22good%20first%20issue%22
+      - https://openrss.org/github.com/zed-industries/zed/issues?q=is:issue%20state:open%20label:%22good%20first%20issue%22
+jobs:
+  print:
+    name: Print
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Outputs
+        env:
+          title: ${{on.rss.outputs.title}}
+          contentSnippet: ${{on.rss.outputs.contentSnippet}}
+          link: ${{on.rss.outputs.link}}
+        run: |
+          echo title: $title
+          echo contentSnippet: $contentSnippet
+          echo link: $link
+  # request:
+  #   name: Make a HTTP Request
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Make a HTTP Request
+  #       uses: actionsflow/axios@v1
+  #       with:
+  #         url: https://hookb.in/VGPzxoWbdjtE22bwznzE
+  #         method: POST
+  #         body: |
+  #           {
+  #             "link":"${{ on.rss.outputs.link }}", 
+  #             "title": "${{ on.rss.outputs.title }}",
+  #             "content":"<<<${{ on.rss.outputs.contentSnippet }}>>>"
+  #           }
+            
