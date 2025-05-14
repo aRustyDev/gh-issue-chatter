@@ -4,7 +4,7 @@ on:
   #   - cron: "*/15 * * * *"
   push:
     branches:
-      - main
+      - disable_this_repo
   repository_dispatch:
   workflow_dispatch:
     inputs:
