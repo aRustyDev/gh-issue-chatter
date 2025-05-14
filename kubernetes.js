@@ -5,8 +5,8 @@ const octokit = new Octokit({
 })
 
 await octokit.request('GET /repos/{owner}/{repo}/events', {
-  owner: 'OWNER',
-  repo: 'REPO',
+  owner: 'kubernetes',
+  repo: 'kubernetes',
   headers: {
     'X-GitHub-Api-Version': '2022-11-28'
   }
